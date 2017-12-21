@@ -35,7 +35,7 @@ grep "^[a-z]\+$"  /usr/share/dict/words | grep  -vP  "[\x80-\xFF]" > $ALL_NON_RA
 words_total=`cat $ALL_NON_RANDOM_WORDS | wc -l` 
  
 # WHILE LOOP TO GENERATE REQUESTED NUMBER OF RANDOM KEYWORDS
-echo "Generating a random word list from $words_total words:"
+echo "Generating a random word list from $words_total words:" 1>&2
 while [ "$X" -lt "$Y" ]; do 
     random_number=`od -N3 -An -i /dev/urandom | awk -v f=0 -v r="$words_total" '{printf "%i", f + r * $Y / 16777216}'` 
     sed `echo $random_number`"q;d" $ALL_NON_RANDOM_WORDS | tr '\r\n' ' '
