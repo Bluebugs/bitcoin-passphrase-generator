@@ -18,6 +18,8 @@ if [ ! -f "/usr/share/dict/words" ]; then
     echo "yum install words"
     echo "FEDORA:"
     echo "dnf install words"
+    echo "ARCH LINUX:"
+    echo "pacman -S words"
     exit 1
 fi
 
